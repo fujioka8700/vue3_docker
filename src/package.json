@@ -1,5 +1,5 @@
 {
-  "name": "jsx_vue3_app",
+  "name": "router_vue3_app",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.3.11"
+    "vue": "^3.3.11",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
-    "@vitejs/plugin-vue-jsx": "^3.1.0",
     "vite": "^5.0.10"
   }
 }
