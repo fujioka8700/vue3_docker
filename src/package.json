@@ -1,5 +1,5 @@
 {
-  "name": "router_vue3_app",
+  "name": "pinia_vue3_app",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.3.11",
-    "vue-router": "^4.2.5"
+    "pinia": "^2.1.7",
+    "vue": "^3.3.11"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
