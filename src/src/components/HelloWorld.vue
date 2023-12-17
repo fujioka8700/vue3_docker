@@ -1,8 +1,7 @@
 <script setup lang="ts">
 defineProps<{
-  msg: string;
-}>();
-const year: number = "2022";
+  msg: string
+}>()
 </script>
 
 <template>
