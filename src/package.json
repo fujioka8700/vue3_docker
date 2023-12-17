@@ -1,5 +1,5 @@
 {
-  "name": "vitest_vue3_app",
+  "name": "cypress_vue3_app",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -7,16 +7,18 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test:unit": "vitest"
+    "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
+    "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'",
+    "test:unit": "cypress run --component",
+    "test:unit:dev": "cypress open --component"
   },
   "dependencies": {
     "vue": "^3.3.11"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
-    "@vue/test-utils": "^2.4.3",
-    "jsdom": "^23.0.1",
-    "vite": "^5.0.10",
-    "vitest": "^1.0.4"
+    "cypress": "^13.6.1",
+    "start-server-and-test": "^2.0.3",
+    "vite": "^5.0.10"
   }
 }
