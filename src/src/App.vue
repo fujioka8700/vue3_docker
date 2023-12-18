@@ -20,8 +20,8 @@ const user = ref<User>({
     age: 25,
 });
 
-const changeName = () => {
-    console.log("changeNameがきた");
+const changeName = (firstName: string) => {
+    user.value.firstName = firstName;
 };
 </script>
 
