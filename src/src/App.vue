@@ -12,11 +12,10 @@ type User = {
     age: number;
 };
 
-const user: User = reactive({
-    firstName: "John",
-    lastName: "Doe",
-    age: 25,
-});
+const user = reactive({} as User);
+user.firstName = "John";
+user.lastName = "Doe";
+user.age = 25;
 </script>
 
 <style scoped></style>
