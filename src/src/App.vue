@@ -21,11 +21,11 @@ const user: User = reactive({
 
 const fullName = computed<string>(() => `${user.firstName} ${user.lastName}`);
 
-const changeName = (): void => {
+const changeName = (name): void => {
     user.firstName = "Jane";
 };
 
-changeName();
+changeName("Jane");
 </script>
 
 <style scoped></style>
