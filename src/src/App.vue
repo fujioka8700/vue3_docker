@@ -20,6 +20,12 @@ const user: User = reactive({
 });
 
 const fullName = computed<string>(() => `${user.firstName} ${user.lastName}`);
+
+const changeName = (): void => {
+    user.firstName = "Jane";
+};
+
+changeName();
 </script>
 
 <style scoped></style>
