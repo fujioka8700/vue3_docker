@@ -1,17 +1,16 @@
 <template>
-    <div>Count: {{ count }}</div>
-    <button @click="count++">Add Count</button>
-    <div>{{ user }}</div>
+    <div>FullName: John Doe</div>
+    {{ user }}
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import type { Ref } from "vue";
-import type { UserType } from "./types";
+import { reactive } from "vue";
 
-const count: Ref<number> = ref<number>(0);
-
-const user: UserType = { id: 10, name: "tarou" };
+const user = reactive({
+    firstName: "John",
+    lastName: "Doe",
+    age: 25,
+});
 </script>
 
 <style scoped></style>
