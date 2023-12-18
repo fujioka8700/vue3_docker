@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { User } from "../App.vue";
+const emit = defineEmits(["changeName"]);
+
 interface Props {
     msg: string;
     user: User;
@@ -7,8 +9,7 @@ interface Props {
 const props = defineProps<Props>();
 
 const changeName = () => {
-    props.msg = "hoge";
-    console.log(props.msg);
+    emit("changeName");
 };
 </script>
 
