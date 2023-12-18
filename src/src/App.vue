@@ -19,7 +19,7 @@ const user: User = reactive({
     age: 25,
 });
 
-const fullName = computed(() => `${user.firstName} ${user.lastName}`);
+const fullName = computed<string>(() => `${user.firstName} ${user.lastName}`);
 </script>
 
 <style scoped></style>
