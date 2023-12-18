@@ -4,10 +4,16 @@ interface Props {
     msg: string;
     user: User;
 }
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const changeName = () => {
+    props.msg = "hoge";
+    console.log(props.msg);
+};
 </script>
 
 <template>
     <div>{{ msg }}</div>
-    <div>{{ `${user.firstName} ${user.lastName}` }}</div>
+    <div>fullName: {{ `${user.firstName} ${user.lastName}` }}</div>
+    <button @click="changeName">Change name</button>
 </template>
