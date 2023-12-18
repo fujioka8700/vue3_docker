@@ -1,10 +1,11 @@
 <template>
     <div>FullName: John Doe</div>
-    {{ user }}
+    <div>{{ user }}</div>
+    <div>{{ fullName }}</div>
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
+import { reactive, computed } from "vue";
 
 type User = {
     firstName: string;
@@ -12,10 +13,13 @@ type User = {
     age: number;
 };
 
-const user = reactive({} as User);
-user.firstName = "John";
-user.lastName = "Doe";
-user.age = 25;
+const user: User = reactive({
+    firstName: "John",
+    lastName: "Doe",
+    age: 25,
+});
+
+const fullName = computed(() => `${user.firstName} ${user.lastName}`);
 </script>
 
 <style scoped></style>
