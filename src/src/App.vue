@@ -6,11 +6,11 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 
-interface User {
+type User = {
     firstName: string;
     lastName: string;
     age: number;
-}
+};
 
 const user: User = reactive({
     firstName: "John",
