@@ -6,7 +6,11 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 
-const user = reactive({
+const user: {
+    firstName: string;
+    lastName: string;
+    age: number;
+} = reactive({
     firstName: "John",
     lastName: "Doe",
     age: 25,
