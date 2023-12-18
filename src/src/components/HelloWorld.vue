@@ -1,22 +1,26 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import type { User } from "../App.vue";
-const emit = defineEmits<{
-    (event: "changeName", firstName: string): void;
-}>();
-
 interface Props {
     msg: string;
     user: User;
 }
-const props = defineProps<Props>();
+defineProps<Props>();
+
+const emit = defineEmits<{
+    (event: "changeName", firstName: string): void;
+}>();
 
 const changeName = () => {
-    emit("changeName", "Jane");
+    emit("changeName", firstName.value);
 };
+
+const firstName = ref<string>("");
 </script>
 
 <template>
     <div>{{ msg }}</div>
     <div>fullName: {{ `${user.firstName} ${user.lastName}` }}</div>
+    <input v-model="firstName" /><br />
     <button @click="changeName">Change name</button>
 </template>
