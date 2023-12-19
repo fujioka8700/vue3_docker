@@ -8,9 +8,10 @@ interface Props {
 }
 defineProps<Props>();
 
-const emit = defineEmits<{
-    (event: "changeName", firstName: Ref<string>): void;
-}>();
+// const emit = defineEmits<{
+//     (event: "changeName", firstName: Ref<string>): void;
+// }>();
+const emit = defineEmits(["changeName"]);
 
 const changeName = () => {
     emit("changeName", firstName);
