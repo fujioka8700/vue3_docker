@@ -7,6 +7,7 @@
 <script setup lang="ts">
 import HelloWorld from "./components/HelloWorld.vue";
 import { ref } from "vue";
+import type { Ref } from "vue";
 
 export type User = {
     firstName: string;
@@ -20,8 +21,8 @@ const user = ref<User>({
     age: 25,
 });
 
-const changeName = (firstName: string) => {
-    user.value.firstName = firstName;
+const changeName = (firstName: Ref<string>) => {
+    user.value.firstName = firstName.value;
 };
 </script>
 

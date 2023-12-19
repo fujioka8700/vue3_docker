@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import type { Ref } from "vue";
 import type { User } from "../App.vue";
 interface Props {
     msg: string;
@@ -8,11 +9,11 @@ interface Props {
 defineProps<Props>();
 
 const emit = defineEmits<{
-    (event: "changeName", firstName: string): void;
+    (event: "changeName", firstName: Ref<string>): void;
 }>();
 
 const changeName = () => {
-    emit("changeName", firstName.value);
+    emit("changeName", firstName);
 };
 
 const firstName = ref<string>("");
