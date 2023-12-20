@@ -8,11 +8,11 @@
 import { ref, onMounted } from "vue";
 
 const name = ref<string>("John");
-const input = ref();
+const input = ref<HTMLInputElement>();
 
 onMounted(() => {
-    input.value.focus();
-    console.log(input.value.value);
+    input.value?.focus();
+    console.log(input.value?.value);
 });
 </script>
 
