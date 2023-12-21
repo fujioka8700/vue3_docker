@@ -1,21 +1,13 @@
 <template>
     <div>
-        <input type="text" ref="input" v-model="name" />
-        <a ref="ahref" href="https://google.com">Google</a>
+        <input type="text" @change="handleChange" />
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-
-const name = ref<string>("John");
-const input = ref<HTMLElement | null>(null);
-const ahref = ref<HTMLAnchorElement | null>(null);
-
-onMounted(() => {
-    input.value?.focus();
-    console.log(ahref.value?.href);
-});
+const handleChange = (event) => {
+    console.log(event.target.value);
+};
 </script>
 
 <style scoped></style>
