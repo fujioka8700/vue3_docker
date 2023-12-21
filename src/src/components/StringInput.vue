@@ -1,23 +1,30 @@
 <template>
-    <div>
-        <span>x:{{ x }} y:{{ y }}</span>
+    <div v-for="user in users" :key="user.id">
+        {{ user.name }}
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 
-const x = ref<number>(0);
-const y = ref<number>(0);
+interface User {
+    id: number;
+    name: string;
+    email: string;
+    address: {
+        street: string;
+    };
+}
 
-const handleMouseMove = (event: MouseEvent) => {
-    x.value = event.pageX;
-    y.value = event.pageY;
+const users = ref<User[]>([]);
+
+const fetchUsers = async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/users");
+
+    users.value = await res.json();
 };
 
-onMounted(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-});
+fetchUsers();
 </script>
 
 <style scoped></style>
