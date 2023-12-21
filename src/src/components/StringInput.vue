@@ -1,15 +1,23 @@
 <template>
     <div>
-        <input type="text" @change="handleChange($event, 'eventの型の確認')" />
+        <span>x:{{ x }} y:{{ y }}</span>
     </div>
 </template>
 
 <script setup lang="ts">
-const handleChange = (event: Event, comment: string) => {
-    console.log((event.target as HTMLInputElement).value);
+import { ref, onMounted } from "vue";
 
-    console.log(comment);
+const x = ref<number>(0);
+const y = ref<number>(0);
+
+const handleMouseMove = (event: MouseEvent) => {
+    x.value = event.pageX;
+    y.value = event.pageY;
 };
+
+onMounted(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+});
 </script>
 
 <style scoped></style>
