@@ -4,11 +4,13 @@
 
 <script setup lang="ts">
 import { reactive } from "vue";
-const user: {
+interface User {
     firstName: string;
     lastName: string;
     age: number;
-} = reactive({
+}
+
+const user: User = reactive({
     firstName: "John",
     lastName: "Doe",
     age: 25,
