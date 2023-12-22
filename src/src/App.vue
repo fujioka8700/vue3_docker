@@ -1,30 +1,22 @@
 <template>
-    <div>FullName: {{ `${user.firstName} ${user.lastName}` }}</div>
-    <div>{{ fullName }}</div>
+    <div>
+        <HelloWorld msg="Hello" :user="user" />
+    </div>
 </template>
 
 <script setup lang="ts">
-import { reactive, computed } from "vue";
+import HelloWorld from "./components/HelloWorld.vue";
+import { ref } from "vue";
 
-type User = {
+export interface User {
     firstName: string;
     lastName: string;
-    age: number;
-};
+}
 
-const user = reactive<User>({} as User);
-
-user.firstName = "John";
-user.lastName = "Doe";
-user.age = 25;
-
-const fullName = computed<string>(() => `${user.firstName} ${user.lastName}`);
-
-const changeName: (name: string) => void = (name: string): void => {
-    user.firstName = name;
-};
-
-changeName("Jane");
+const user = ref<User>({
+    firstName: "Suzuki",
+    lastName: "Kenta",
+});
 </script>
 
 <style scoped></style>
