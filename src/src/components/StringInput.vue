@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import type { Ref } from "vue";
 
 interface User {
     id: number;
@@ -16,12 +17,15 @@ interface User {
     };
 }
 
-const users = ref<User[]>([]);
+const users: Ref<User[]> = ref([]);
 
-const fetchUsers = async () => {
-    const res = await fetch("https://jsonplaceholder.typicode.com/users");
+const fetchUsers = async (): Promise<User[]> => {
+    const res: Response = await fetch(
+        "https://jsonplaceholder.typicode.com/users"
+    );
 
     users.value = await res.json();
+    return users.value;
 };
 
 fetchUsers();
