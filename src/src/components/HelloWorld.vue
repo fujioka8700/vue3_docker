@@ -8,7 +8,12 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import type { Ref } from "vue";
-import type { User } from "../App.vue";
+// import type { User } from "../App.vue";
+
+interface User {
+    firstName: string;
+    lastName: string;
+}
 
 interface Props {
     msg: string;

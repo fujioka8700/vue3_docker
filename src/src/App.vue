@@ -1,27 +1,29 @@
 <template>
     <div>
-        <HelloWorld msg="Hello" :user="user" @changeName="changeName" />
+        <input type="text" ref="input" v-model="name" />
     </div>
 </template>
 
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
-import { ref } from "vue";
-import type { Ref } from "vue";
+import { ref, onMounted } from "vue";
 
-export interface User {
-    firstName: string;
-    lastName: string;
-}
+const name = ref<string>("田中");
+const input = ref<HTMLInputElement | undefined>();
 
-const user = ref<User>({
-    firstName: "Suzuki",
-    lastName: "Kenta",
+onMounted(() => {
+    input.value?.focus();
+    console.log(input.value?.value);
 });
 
-const changeName = (firstName: Ref<string>): void => {
-    user.value.firstName = firstName.value;
+export type funcType = <T>(val: T) => void;
+const hogefunc: funcType = <T>(val: T): void => {
+    console.log(typeof val);
 };
+
+hogefunc("hello");
+hogefunc(100);
+
+import "./sample";
 </script>
 
 <style scoped></style>
