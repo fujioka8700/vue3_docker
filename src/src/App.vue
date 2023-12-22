@@ -14,16 +14,6 @@ onMounted(() => {
     input.value?.focus();
     console.log(input.value?.value);
 });
-
-export type funcType = <T>(val: T) => void;
-const hogefunc: funcType = <T>(val: T): void => {
-    console.log(typeof val);
-};
-
-hogefunc("hello");
-hogefunc(100);
-
-import "./sample";
 </script>
 
 <style scoped></style>
