@@ -7,6 +7,7 @@
 <script setup lang="ts">
 import HelloWorld from "./components/HelloWorld.vue";
 import { ref } from "vue";
+import type { Ref } from "vue";
 
 export interface User {
     firstName: string;
@@ -18,8 +19,8 @@ const user = ref<User>({
     lastName: "Kenta",
 });
 
-const changeName = (firstName: string): void => {
-    user.value.firstName = firstName;
+const changeName = (firstName: Ref<string>): void => {
+    user.value.firstName = firstName.value;
 };
 </script>
 
