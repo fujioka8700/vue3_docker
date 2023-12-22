@@ -19,7 +19,7 @@ interface User {
 
 const users: Ref<User[]> = ref([]);
 
-const fetchUsers = async () => {
+const fetchUsers = async (): Promise<void> => {
     const res = await fetch("https://jsonplaceholder.typicode.com/users");
 
     users.value = await res.json();
