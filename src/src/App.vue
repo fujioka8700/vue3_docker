@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HelloWorld msg="Hello" :user="user" />
+        <HelloWorld msg="Hello" :user="user" @changeName="changeName" />
     </div>
 </template>
 
@@ -17,6 +17,10 @@ const user = ref<User>({
     firstName: "Suzuki",
     lastName: "Kenta",
 });
+
+const changeName = (firstName: string): void => {
+    user.value.firstName = firstName;
+};
 </script>
 
 <style scoped></style>
