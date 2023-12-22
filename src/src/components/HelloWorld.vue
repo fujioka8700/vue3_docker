@@ -6,10 +6,12 @@
 <script setup lang="ts">
 import type { User } from "../App.vue";
 
-defineProps<{
+interface Props {
     msg: string;
     user: User;
-}>();
+}
+
+defineProps<Props>();
 </script>
 
 <style scoped></style>
