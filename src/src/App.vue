@@ -5,8 +5,9 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import type { Ref } from "vue";
 
-const count = ref<number>(0);
+const count: Ref<number> = ref(0);
 </script>
 
 <style scoped></style>
