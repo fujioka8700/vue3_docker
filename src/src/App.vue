@@ -19,6 +19,12 @@ user.lastName = "Doe";
 user.age = 25;
 
 const fullName = computed<string>(() => `${user.firstName} ${user.lastName}`);
+
+const changeName: (name: string) => void = (name: string): void => {
+    user.firstName = name;
+};
+
+changeName("Jane");
 </script>
 
 <style scoped></style>
