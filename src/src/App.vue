@@ -17,19 +17,14 @@ interface User {
 
 const users = ref<User[]>([]);
 
-const fetchUsers = async (): Promise<User[]> => {
-    const res = await fetch("https://jsonplaceholder.typicode.com/users");
-    // users.value = await res.json();
-    // return users.value;
-    return await res.json();
+const fetchUsers = async (): Promise<void> => {
+    const res: Response = await fetch(
+        "https://jsonplaceholder.typicode.com/users"
+    );
+    users.value = await res.json();
 };
 
-const putInUsers = async (): Promise<void> => {
-    const result = await fetchUsers();
-    users.value = result;
-};
-
-putInUsers();
+fetchUsers();
 </script>
 
 <style scoped></style>
