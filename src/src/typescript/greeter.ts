@@ -1,11 +1,11 @@
 interface Person {
     firstName: string;
     lastName: string;
-    greeting: (message: string) => string;
+    greeting?: (message: string) => string;
 }
 
 class User {
-    private firstName: string;
+    protected firstName: string;
     lastName: string;
     constructor(peron: Person) {
         this.firstName = peron.firstName;
@@ -16,7 +16,18 @@ class User {
     }
 }
 
-let peron: Person = {
+class Admin extends User {
+    isAdmin: boolean;
+    constructor(person: Person, isAdmin: boolean) {
+        super(person);
+        this.isAdmin = isAdmin;
+    }
+    yourFirstName(): void {
+        console.log(this.firstName);
+    }
+}
+
+const personJohn: Person = {
     firstName: "John",
     lastName: "Smith",
     greeting(message: string) {
@@ -24,7 +35,14 @@ let peron: Person = {
     },
 };
 
-const user = new User(peron);
+const userJohn = new User(personJohn);
+console.log(userJohn.fullName());
 
-user.firstName = "tanaka";
-console.log(user.fullName());
+const personTanaka: Person = {
+    firstName: "Tanaka",
+    lastName: "Tarou",
+};
+
+const userTanaka = new Admin(personTanaka, true);
+console.log(userTanaka.fullName());
+userTanaka.yourFirstName();
