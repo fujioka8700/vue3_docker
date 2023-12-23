@@ -25,14 +25,90 @@
 
 // console.log(name_3);
 
-type Hello = (name: string) => string;
-type Hello2 = { (name: string): string };
-interface Hello3 {
-    (name: string, age: number): string;
+// type Hello = (name: string) => string;
+// type Hello2 = { (name: string): string };
+// interface Hello3 {
+//     (name: string, age: number): string;
+// }
+
+// const hello: Hello3 = (name: string, age: number): string => {
+//     return "Hello!! " + name + `さんは${age}才です。`;
+// };
+
+// console.log(hello("田中", 15));
+
+// type User = {
+//     id: number;
+//     name: string;
+// };
+
+// interface User2 {
+//     id: number;
+//     name: string;
+// }
+
+// const user: {
+//     id: number;
+//     name: string;
+// } = {
+//     id: 100,
+//     name: "John Doe",
+// };
+
+// const user: User = {
+//     id: 100,
+//     name: "John Doe",
+// };
+
+// console.log(user);
+
+// オプショナル（任意）プロパティ
+// const user: {
+//     id: number;
+//     name?: string;
+// } = {
+// id: 100,
+// name: "John Doe",
+// };
+
+// console.log(user);
+
+// readonly プロパティ
+// const user: {
+//     id: number;
+//     readonly name: string;
+// } = {
+//     id: 100,
+//     name: "John Doe",
+// };
+
+// user.id = 200;
+// user.name = "tanaka";
+
+// console.log(user);
+
+interface Person {
+    firstName: string;
+    lastName: string;
+    age?: number | null;
+    greeting: (message: string) => string;
 }
 
-const hello: Hello3 = (name: string, age: number): string => {
-    return "Hello!! " + name + `さんは${age}才です。`;
+function greeter(person: Person): string {
+    return `Hello!! ${person.firstName} ${person.lastName}`;
+}
+
+const user: Person = {
+    firstName: "田中",
+    lastName: "太郎",
+    age: 15,
+    greeting(message) {
+        return `${message}, ${this.firstName}`;
+    },
 };
 
-console.log(hello("田中", 15));
+document.body.textContent = greeter(user);
+if (user.greeting) {
+    console.log(user?.greeting("Hello"));
+}
+console.log(user?.age);
