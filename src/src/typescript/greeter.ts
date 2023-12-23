@@ -1,7 +1,23 @@
-function greeter(person: string) {
-    return "Hello, " + person;
-}
+// const firstName: string = "John Doe";
 
-let user = [0, 1, 2];
+// console.log(firstName);
 
-document.body.textContent = greeter(user);
+// const age: string = 25;
+
+// const temp: number = -10.5;
+
+// const isAdmin: boolean = true;
+
+// console.log(isAdmin);
+
+// const fruits: string[] = ["apple", "banana"];
+// const fruits: Array<string | number> = ["apple", 10];
+
+// console.log(fruits);
+
+// const fruits: [string, number] = ["apple", 10];
+// const fruits: (string | number)[] = ["apple", 10, 10];
+// console.log(fruits);
+
+const value = null;
+console.log(value);
