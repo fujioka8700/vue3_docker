@@ -1,22 +1,35 @@
 <template>
-    <div>x :{{ x }}</div>
-    <div>y :{{ y }}</div>
+    <div>
+        <h1>fetch関数</h1>
+        <div v-for="user in users" :key="user.id">
+            {{ user.name }}
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 
-const x = ref<number>(0);
-const y = ref<number>(0);
+interface User {
+    id: number;
+    name: string;
+}
 
-const handleMouseMove = (event: MouseEvent) => {
-    x.value = event.pageX;
-    y.value = event.pageY;
+const users = ref<User[]>([]);
+
+const fetchUsers = async (): Promise<User[]> => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/users");
+    // users.value = await res.json();
+    // return users.value;
+    return await res.json();
 };
 
-onMounted(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-});
+const putInUsers = async (): Promise<void> => {
+    const result = await fetchUsers();
+    users.value = result;
+};
+
+putInUsers();
 </script>
 
 <style scoped></style>
