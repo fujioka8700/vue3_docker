@@ -1,27 +1,30 @@
 <template>
     <div>
-        <HelloWorld msg="Hello" :user="user" @changeName="changeName" />
+        <h1>fetch関数</h1>
+        <div v-for="user in users" :key="user.id">
+            {{ user.name }}
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
 import { ref } from "vue";
-import type { Ref } from "vue";
 
-export interface User {
-    firstName: string;
-    lastName: string;
+interface User {
+    id: number;
+    name: string;
 }
 
-const user = ref<User>({
-    firstName: "Suzuki",
-    lastName: "Kenta",
-});
+const users = ref<User[]>([]);
 
-const changeName = (firstName: Ref<string>): void => {
-    user.value.firstName = firstName.value;
+const fetchUsers = async (): Promise<void> => {
+    const res: Response = await fetch(
+        "https://jsonplaceholder.typicode.com/users"
+    );
+    users.value = await res.json();
 };
+
+fetchUsers();
 </script>
 
 <style scoped></style>
