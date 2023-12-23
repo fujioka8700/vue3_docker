@@ -5,7 +5,7 @@ interface Person {
 }
 
 class User {
-    firstName: string;
+    private firstName: string;
     lastName: string;
     constructor(peron: Person) {
         this.firstName = peron.firstName;
@@ -26,8 +26,5 @@ let peron: Person = {
 
 const user = new User(peron);
 
-console.log(user.fullName());
-
-peron.firstName = "tanaka";
-console.log(peron.greeting("Hello!!"));
+user.firstName = "tanaka";
 console.log(user.fullName());
