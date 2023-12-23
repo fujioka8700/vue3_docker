@@ -19,6 +19,20 @@
 // const fruits: (string | number)[] = ["apple", 10, 10];
 // console.log(fruits);
 
-let value: never = 0;
+// const name_1: any = undefined;
+// const name_2: any = null;
+// const name_3: any = "suzuki";
 
-console.log(value);
+// console.log(name_3);
+
+type Hello = (name: string) => string;
+type Hello2 = { (name: string): string };
+interface Hello3 {
+    (name: string, age: number): string;
+}
+
+const hello: Hello3 = (name: string, age: number): string => {
+    return "Hello!! " + name + `さんは${age}才です。`;
+};
+
+console.log(hello("田中", 15));
