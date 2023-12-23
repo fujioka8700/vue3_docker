@@ -1,19 +1,21 @@
 <template>
     <div>
-        <input type="text" ref="input" v-model="name" />
+        <input type="text" ref="input" @input="handleChange" />
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 
-const name = ref<string>("田中");
 const input = ref<HTMLInputElement | undefined>();
 
 onMounted(() => {
     input.value?.focus();
-    console.log(input.value?.value);
 });
+
+const handleChange = (event: Event) => {
+    console.log((event.target as HTMLInputElement).value);
+};
 </script>
 
 <style scoped></style>
