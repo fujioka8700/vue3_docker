@@ -19,6 +19,6 @@
 // const fruits: (string | number)[] = ["apple", 10, 10];
 // console.log(fruits);
 
-let value: string | undefined = undefined;
-value = "suzuki";
+let value: never = 0;
+
 console.log(value);
