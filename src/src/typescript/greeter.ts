@@ -91,7 +91,8 @@ interface Person {
     firstName: string;
     lastName: string;
     age?: number | null;
-    greeting: (message: string) => string;
+    // greeting: (message: string) => string;
+    greeting(message: string): string;
 }
 
 function greeter(person: Person): string {
