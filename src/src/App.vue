@@ -1,6 +1,10 @@
 <template>
     <div>
-        <input type="text" ref="input" @input="handleChange" />
+        <input
+            type="text"
+            ref="input"
+            @input="handleChange($event, 'event型の確認')"
+        />
     </div>
 </template>
 
@@ -13,8 +17,9 @@ onMounted(() => {
     input.value?.focus();
 });
 
-const handleChange = (event: Event) => {
+const handleChange = (event: Event, comment: string) => {
     console.log((event.target as HTMLInputElement).value);
+    console.log(comment);
 };
 </script>
 
