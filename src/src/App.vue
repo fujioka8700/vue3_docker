@@ -1,26 +1,22 @@
 <template>
-    <div>
-        <input
-            type="text"
-            ref="input"
-            @input="handleChange($event, 'event型の確認')"
-        />
-    </div>
+    <div>x :{{ x }}</div>
+    <div>y :{{ y }}</div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 
-const input = ref<HTMLInputElement | undefined>();
+const x = ref<number>(0);
+const y = ref<number>(0);
+
+const handleMouseMove = (event: MouseEvent) => {
+    x.value = event.pageX;
+    y.value = event.pageY;
+};
 
 onMounted(() => {
-    input.value?.focus();
+    window.addEventListener("mousemove", handleMouseMove);
 });
-
-const handleChange = (event: Event, comment: string) => {
-    console.log((event.target as HTMLInputElement).value);
-    console.log(comment);
-};
 </script>
 
 <style scoped></style>
