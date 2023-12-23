@@ -19,5 +19,6 @@
 // const fruits: (string | number)[] = ["apple", 10, 10];
 // console.log(fruits);
 
-const value = null;
-console.log(value);
+let firstName: string | null = null;
+firstName = 100;
+console.log(firstName);
