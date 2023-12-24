@@ -1,16 +1,7 @@
-interface firstPerson {
-    firstName: string;
-}
+type helloFunc = (name: string) => void;
 
-interface lastPerson {
-    lastName: string;
-}
-
-interface Person extends firstPerson, lastPerson {}
-
-const user: Person = {
-    firstName: "John",
-    lastName: "Doe",
+const hello: helloFunc = (name: string): void => {
+    console.log("Hello " + name);
 };
 
-console.log(user);
+hello("tarou");
