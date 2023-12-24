@@ -13,6 +13,6 @@ class Student implements Person {
 }
 
 const student = new Student("Tanaka", "Tarou");
-// 更新できる
+// 更新できない
 student.firstName = "Jane";
 console.log(student.firstName);
