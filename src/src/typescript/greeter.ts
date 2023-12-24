@@ -1,14 +1,16 @@
-type Person = {
+type firstPerson = {
     firstName: string;
 };
 
-// type Person = {
-//     lastName: string;
-// };
+type lastPerson = {
+    lastName: string;
+};
+
+type Person = firstPerson & lastPerson;
 
 const user: Person = {
     firstName: "John",
-    // lastName: "Doe",
+    lastName: "Doe",
 };
 
 console.log(user);
