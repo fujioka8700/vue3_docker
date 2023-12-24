@@ -1,5 +1,17 @@
-type fruits = "apple" | "banana" | "lemon";
+interface Person {
+    firstName: string;
+    age: number;
+}
 
-const ball: fruits = "banana";
+interface Person {
+    lastName: string;
+    age: number;
+}
 
-console.log(ball);
+const user: Person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 10,
+};
+
+console.log(user);
