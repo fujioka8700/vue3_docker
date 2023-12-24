@@ -1,17 +1,14 @@
-interface Person {
+type Person = {
     firstName: string;
-    age: number;
-}
+};
 
-interface Person {
-    lastName: string;
-    age: number;
-}
+// type Person = {
+//     lastName: string;
+// };
 
 const user: Person = {
     firstName: "John",
-    lastName: "Doe",
-    age: 10,
+    // lastName: "Doe",
 };
 
 console.log(user);
