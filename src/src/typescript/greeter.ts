@@ -1,12 +1,12 @@
-type firstPerson = {
+interface firstPerson {
     firstName: string;
-};
+}
 
-type lastPerson = {
+interface lastPerson {
     lastName: string;
-};
+}
 
-type Person = firstPerson & lastPerson;
+interface Person extends firstPerson, lastPerson {}
 
 const user: Person = {
     firstName: "John",
