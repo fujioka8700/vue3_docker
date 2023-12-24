@@ -6,24 +6,26 @@ interface Person {
 
 class User {
     protected firstName: string;
-    lastName: string;
+    protected lastName: string;
     constructor(peron: Person) {
         this.firstName = peron.firstName;
         this.lastName = peron.lastName;
     }
-    fullName(): string {
+    public fullName(): string {
         return `${this.firstName} ${this.lastName}`;
     }
 }
 
 class Admin extends User {
-    isAdmin: boolean;
-    constructor(person: Person, isAdmin: boolean) {
+    constructor(person: Person, private isAdmin: boolean) {
         super(person);
         this.isAdmin = isAdmin;
     }
-    yourFirstName(): void {
+    public yourFirstName(): void {
         console.log(this.firstName);
+    }
+    public confirmAdmin(): boolean {
+        return this.isAdmin;
     }
 }
 
@@ -44,5 +46,8 @@ const personTanaka: Person = {
 };
 
 const userTanaka = new Admin(personTanaka, true);
+// userTanaka.firstName = "TANAKAZ";
 console.log(userTanaka.fullName());
 userTanaka.yourFirstName();
+
+console.log(userTanaka.confirmAdmin());
