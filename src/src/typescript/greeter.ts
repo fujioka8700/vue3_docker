@@ -1,18 +1,5 @@
-interface Person {
-    readonly firstName: string;
-    lastName: string;
-}
+type Name = string;
 
-class Student implements Person {
-    public readonly firstName: string;
-    public lastName: string;
-    constructor(firstName: string, lastName: string) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-}
+const firstName: Name = "tanaka";
 
-const student = new Student("Tanaka", "Tarou");
-// 更新できない
-student.firstName = "Jane";
-console.log(student.firstName);
+console.log(firstName);
