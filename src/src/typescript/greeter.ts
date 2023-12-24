@@ -1,5 +1,5 @@
-type Name = string;
+type fruits = "apple" | "banana" | "lemon";
 
-const firstName: Name = "tanaka";
+const ball: fruits = "banana";
 
-console.log(firstName);
+console.log(ball);
