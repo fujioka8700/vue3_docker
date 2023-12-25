@@ -1,4 +1,5 @@
-let fruits = [100, "banana", "lemon"];
-const a = fruits[0].toUpperCase(); //
+const hello = (name: string) => {
+    console.log("Hello" + name);
+};
 
-console.log(a);
+hello("tanaka");
