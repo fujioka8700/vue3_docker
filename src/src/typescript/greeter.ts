@@ -1,8 +1,19 @@
-const person = {
-    name: "John Doe",
-    age: 30,
-};
+const user = {
+    firstName: "John",
+    lastName: "Doe",
+    address: {
+        prefecture: "Tokyo",
+    },
+} as const;
 
-const user: keyof typeof person = "name";
-//const user: name | age
+user.address.prefecture = "Chiba"; //Error
+
 console.log(user);
+//
+// const user: {
+//     readonly firstName: "John";
+//     readonly lastName: "Doe";
+//     readonly address: {
+//         readonly prefecture: "Tokyo";
+//     };
+// };
