@@ -1,28 +1,16 @@
-const user = {
-    firstName: "John",
-    lastName: "Doe",
-} as const;
+const fruits = ["apple", "banana", "lemon"] as const;
+type Fruit = (typeof fruits)[number];
+//結果
+// string[]
+const buyFruit: Fruit = "banana";
+console.log(buyFruit);
 
-// user.firstName = "Jane"; // readonly
+// const fruits = [1, 100, 2];
+// type Fruit = typeof fruits;
+//結果
+// number[]
 
-type User = typeof user;
-
-type Admin = {
-    isAdmin: boolean;
-};
-
-type adminUser = User & Admin;
-
-const specialUser: adminUser = {
-    firstName: "John",
-    lastName: "Doe",
-    isAdmin: true,
-};
-
-console.log(specialUser);
-
-//　結果
-// type User = {
-//     readonly firstName: "John";
-//     readonly lastName: "Doe";
-// };
+// const fruits = [100, 'banana', 'lemon'];
+// type Fruit = typeof fruits;
+//結果
+// (string|number)[]
