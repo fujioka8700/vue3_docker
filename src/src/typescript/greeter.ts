@@ -1,5 +1,8 @@
-const hello = (name: string) => {
-    console.log("Hello" + name);
+const getValue = (format: boolean): string | number => {
+    return format ? "10" : 10;
 };
 
-hello("tanaka");
+console.log(typeof getValue(true));
+const value = getValue(true) as string;
+const digit = value.length;
+console.log(digit);
