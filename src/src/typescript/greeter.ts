@@ -1,23 +1,12 @@
-type PersonFirst = {
-    firstName: string;
-    age: number;
-    height: number;
-};
+// function fun<T>(args: T): T {
+//     return args;
+// }
 
-interface PersonLast {
-    lastName: string;
-    age: number;
-    weight: number;
-}
+//アロー関数で記述した場合
+const fun = <T>(args: T): T => args;
 
-type Person = PersonFirst & PersonLast;
+let result = fun<string>("Hello World");
+let result2 = fun<number>(200);
 
-const user: Person = {
-    firstName: "John",
-    lastName: "Doe",
-    age: 10,
-    weight: 60,
-    height: 170,
-};
-
-console.log(user);
+console.log(result);
+console.log(result2);
