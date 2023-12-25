@@ -1,9 +1,23 @@
-interface helloFunc {
-    (name: string): void;
-}
-
-const hello: helloFunc = (name: string): void => {
-    console.log("Hello " + name);
+type PersonFirst = {
+    firstName: string;
+    age: number;
+    height: number;
 };
 
-hello("tarou");
+type PersonLast = {
+    lastName: string;
+    age: number;
+    weight: number;
+};
+
+type Person = PersonFirst | PersonLast;
+
+const user: Person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 10,
+    weight: 60,
+    // height: 160,
+};
+
+console.log(user);
