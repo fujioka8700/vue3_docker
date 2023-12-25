@@ -1,5 +1,5 @@
 // const fun = <T>(args: T): T => args;
-const fun = <T extends string | number>(args: T): T => args;
+const fun = <T extends string | number | User>(args: T): T => args;
 
 //Interface
 interface User {
@@ -15,3 +15,7 @@ interface User {
 let result3 = fun<string>("John Doe");
 
 console.log(result3);
+
+let result4 = fun<User>({ name: "aaa", age: 20 });
+
+console.log(result4);
