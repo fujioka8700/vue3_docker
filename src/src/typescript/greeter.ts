@@ -1,22 +1,28 @@
-let firstName = "John";
-let price = 20;
-let user = {
+const user = {
     firstName: "John",
     lastName: "Doe",
-};
+} as const;
 
-type Name = typeof firstName;
-type Price = typeof price;
+// user.firstName = "Jane"; // readonly
+
 type User = typeof user;
 
-let lastName: Name = "Tarou";
-
-console.log(lastName);
-
-const person: User = {
-    firstName: "Jane",
-    lastName: "Doe",
-    age: 20, // Error
+type Admin = {
+    isAdmin: boolean;
 };
 
-console.log(person);
+type adminUser = User & Admin;
+
+const specialUser: adminUser = {
+    firstName: "John",
+    lastName: "Doe",
+    isAdmin: true,
+};
+
+console.log(specialUser);
+
+//　結果
+// type User = {
+//     readonly firstName: "John";
+//     readonly lastName: "Doe";
+// };
