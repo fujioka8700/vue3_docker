@@ -10,3 +10,6 @@ let result2 = fun<number>(200);
 
 console.log(result);
 console.log(result2);
+
+let result3 = fun<{ name: string }>({ name: "John Doe" });
+console.log(result3);
