@@ -1,19 +1,6 @@
-const user = {
-    firstName: "John",
-    lastName: "Doe",
-    address: {
-        prefecture: "Tokyo",
-    },
-} as const;
+const fruits = ["apple", "banana", "lemon"] as const;
 
-user.address.prefecture = "Chiba"; //Error
-
-console.log(user);
-//
-// const user: {
-//     readonly firstName: "John";
-//     readonly lastName: "Doe";
-//     readonly address: {
-//         readonly prefecture: "Tokyo";
-//     };
-// };
+fruits.push("meron");
+console.log(fruits);
+//型
+// string[]
