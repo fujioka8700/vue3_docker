@@ -5,16 +5,18 @@
 
 // createApp(App).mount("#app");
 
-const person: Person = {
-    name: "Taro",
-    age: 23,
-};
+// const person: Person = {
+//     name: "Taro",
+//     age: 23,
+// };
 
-const count: T = 3;
+// const count: T = 3;
 
-console.log(person);
-console.log(count);
+// console.log(person);
+// console.log(count);
 
-import "./hello";
+// import "./hello";
 
-console.log(hello("taro"));
+// console.log(hello("taro"));
+
+import "./practice";
