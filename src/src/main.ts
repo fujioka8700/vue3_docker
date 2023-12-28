@@ -5,4 +5,6 @@ import App from './App.vue'
 
 createApp(App).mount('#app')
 
-import './practice'
+import { div } from './sample/util.js'
+
+console.log(div(12, 4))
